@@ -22,8 +22,8 @@ import java.util.List;
 public class ViewPagerBuilder {
     private List<Fragment> fragments;
     private List<Integer> colors;
-    private final FragmentActivity activity;
     private int defaultColor;
+    private final FragmentActivity activity;
     private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     private int resId;
     private int pageIndicatorResId;
@@ -33,9 +33,9 @@ public class ViewPagerBuilder {
     private View.OnClickListener skipButtonClick;
 
     private ViewPagerBuilder(FragmentActivity activity) {
+        this.activity = activity;
         fragments = new ArrayList<>();
         colors = new ArrayList<>();
-        this.activity = activity;
         defaultColor = ViewPagerBuilder.getThemePrimaryColor(activity);
     }
 
@@ -66,10 +66,10 @@ public class ViewPagerBuilder {
         return this;
     }
 
-    public ViewPagerBuilder addSimilarPages(Fragment fragment, int count) {
-        for (int i = 0; i < count; i++) {
-            fragments.add(fragment);
-            colors.add(defaultColor);
+    public ViewPagerBuilder addPages(List... fragmentsColors) {
+        for (int i = 0; i < fragmentsColors[0].size(); i++) {
+            fragments.add((Fragment) fragmentsColors[0].get(i));
+            colors.add((Integer) fragmentsColors[1].get(i));
         }
         return this;
     }
@@ -187,13 +187,13 @@ public class ViewPagerBuilder {
         };
 
         PageIndicatorView pageIndicatorView = (PageIndicatorView) activity.findViewById(pageIndicatorResId);
-        pageIndicatorView.setViewPager(viewPager);
 
         viewPager.addOnPageChangeListener(changeListener);
         viewPager.setAdapter(adapter);
         viewPager.setPageTransformer(false, pageTransformer);
         updateNextButton(viewPager, nextButton);
         skipButton.setOnClickListener(skipButtonClick);
+        pageIndicatorView.setViewPager(viewPager);
         return viewPager;
     }
 

@@ -10,6 +10,8 @@ import com.flowexample.introsample.intro.FragmentItem;
 import com.flowexample.introsample.intro.IntroFragment;
 import com.flowexample.introsample.intro.ViewPagerBuilder;
 
+import java.util.List;
+
 import static java.lang.String.format;
 
 /**
@@ -22,6 +24,21 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        List[] pages = IntroFragmentsBuilder.create(this)
+                .setDefaultFragmentLayout(R.layout.fragment_main)
+                .addFragment(FragmentItem.create(R.id.sl, R.string.app_name, -0.1f),
+                        FragmentItem.create(R.id.Img, R.drawable.sample, 0.1f))
+                .addFragment(FragmentItem.create(R.id.sl, R.string.app_name, -0.1f),
+                        FragmentItem.create(R.id.Img, R.drawable.sample, 0.1f))
+                .addFragment(FragmentItem.create(R.id.sl, R.string.app_name, -0.1f),
+                        FragmentItem.create(R.id.Img, R.drawable.sample, 0.1f))
+                .addFragment(FragmentItem.create(R.id.sl, R.string.app_name, -0.1f),
+                        FragmentItem.create(R.id.Img, R.drawable.sample, 0.1f))
+                .addFragment(FragmentItem.create(R.id.sl, R.string.app_name, -0.1f),
+                        FragmentItem.create(R.id.Img, R.drawable.sample, 0.1f))
+                .build();
+
+
         ViewPagerBuilder.create(this)
                 .setNextButtonResId(R.id.next_button)
                 .setSkipButtonResId(R.id.skip_button)
@@ -33,16 +50,15 @@ public class MainActivity extends FragmentActivity {
                 })
                 .setLayoutResId(R.id.pager)
                 .setIndicatorResId(R.id.pageIndicatorView)
-                .addPage(getIntroFragment(), getResources().getColor(R.color.color1))
-                .addPage(getIntroFragment(), getResources().getColor(R.color.color2))
-                .addPage(getIntroFragment(), getResources().getColor(R.color.color3))
+                .addPages(pages)
                 .build();
 
         }
 
     private IntroFragment getIntroFragment() {
-        return IntroFragment.create(R.layout.fragment_main, new FragmentItem[]
-                {FragmentItem.create(R.id.sl, -0.1f), FragmentItem.create(R.id.Img, 0.1f)});
+        return IntroFragment.create(R.layout.fragment_main,
+                FragmentItem.create(R.id.sl, -0.1f),
+                FragmentItem.create(R.id.Img, 0.1f));
     }
 
 

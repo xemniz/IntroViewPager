@@ -14,13 +14,13 @@ public class IntroFragment extends Fragment {
     private static final String EXTRA_PAGE_LAYOUT_RES = "PAGE_LAYOUT_RES";
     private static final String EXTRA_TRANSFORM_ITEMS = "TRANSFORM_ITEMS";
 
-    public static IntroFragment create(int layoutId, FragmentItem[] items) {
+    public static IntroFragment create(int layoutId, FragmentItem... items) {
         IntroFragment f = new IntroFragment();
         f.setArguments(getArguments(layoutId, items));
         return f;
     }
 
-    static Bundle getArguments(@LayoutRes int pageLayoutRes, @NonNull FragmentItem[] transformItems) {
+    static Bundle getArguments(@LayoutRes int pageLayoutRes, @NonNull FragmentItem... transformItems) {
         Bundle args = new Bundle();
         args.putInt(EXTRA_PAGE_LAYOUT_RES, pageLayoutRes);
         args.putParcelableArray(EXTRA_TRANSFORM_ITEMS, transformItems);
