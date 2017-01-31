@@ -2,8 +2,6 @@
   <component name="FindSettings">
     <option name="customScope" value="File 'C:\Users\USER\Documents\salestool.android.clone\app\src\main\java\com\mediaparts\sierokarte\activity\demoform\fragment\DemoFormPresenter.java'" />
     <option name="defaultScopeName" value="File 'C:\Users\USER\Documents\salestool.android.clone\app\src\main\java\com\mediaparts\sierokarte\activity\demoform\fragment\DemoFormPresenter.java'" />
-    <option name="regularExpressions" value="true" />
-    <option name="REGULAR_EXPRESSIONS" value="true" />
     <option name="SEARCH_SCOPE" value="File 'C:\Users\USER\Documents\salestool.android.clone\app\src\main\java\com\mediaparts\sierokarte\activity\demoform\fragment\DemoFormPresenter.java'" />
     <recentFileMasks>
       <mask>*.properties</mask>
