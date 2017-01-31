@@ -1,0 +1,7 @@
+<templateSet group="html/xml">
+  <template name="safeUnbox" value="safeUnbox($SELECTION$)" description="safeUnbox" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+</templateSet>
